@@ -1,19 +1,80 @@
+
 var inquirer = require("inquirer");
+var ClozeCard = require("./cloze.js");
 var BasicCard = require("./basic.js");
 
-var fs = require("fs");
+
 
 function startGame() {
+
     inquirer.prompt([
         {
             type: "list",
             message: "Which type of flashcard game do you want to play?",
             choices: ["Basic Card", "Cloze Card"],
             name: "cardType"
-        }
+        }, 
+    ]).then(function(answer) {    
+        function basicGame() {
+    inquirer.prompt([
+    {
+        type: "list",
+        message: 
 
-    ]).
+    }
+    ]).then(function (data) {});
 };
+        
+    //]).then(function(answer) {
+
+        var cardType = answer.cardType;
+        console.log(cardType);
+
+        if (cardType === "Basic Card") {
+            inquirer.prompt([
+            {
+                type: "rawlist",
+                message: "Who was the first president of the US?",
+                name: "front"
+            },
+            {
+                type: "rawlist",
+                message: "George Washington",
+                name: "back"
+            }
+        ]).then(function (cardData) {
+                var cardObj = {
+                    type: "BasicCard",
+                    front: cardData.front,
+                    back: card cardData.back
+                };
+            });
+          }
+        }); 
+
+
+//     ]).then(function(answer) {
+//         switch (answer.cardType) {
+//             case "Basic":
+//             console.log("Play Basic Flashcard Game");
+//             BasicCard
+//             break;
+
+//             case "Cloze":
+//             console.log("Play Cloze Flashcard Game")
+//             ClozeCard
+//             break;
+
+//             default:
+//                 console.log()
+//         };
+//     });
+// };
+
+startGame();
+
+
+
 
 //var firstPresident = new BasicCard(
     //"Who was the first president of the United States?", "George Washington");
